@@ -4,17 +4,19 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.hcchiang.kotlinforandroiddevelopers.R
+import com.hcchiang.kotlinforandroiddevelopers.data.Request
 import com.hcchiang.kotlinforandroiddevelopers.ui.adapters.ForecastListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.longToast
+import org.jetbrains.anko.uiThread
 
 /**
  *  Chapter 5: Writing your first class
+ *  Chapter 10: Parsing data
  */
 class MainActivity : AppCompatActivity() {
 
-    /*
-    Chapter 5: Writing your first class
-     */
     private val items = listOf(
             "Mon 6/23 - Sunny - 31/17",
             "Tue 6/24 - Foggy - 21/8",
@@ -29,8 +31,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Chapter 5: Writing your first class
         forecast_list.layoutManager = LinearLayoutManager(this)
         forecast_list.adapter = ForecastListAdapter(items)
+
+        val url = "http://api.openweathermap.org/data/2.5/forecast/daily?" +
+                "APPID=15646a06818f61f7b8d7823ca833e1ce&zip=94043&mode=json&units=metric&cnt=7"
+
+        doAsync {
+            Request(url).run()
+            uiThread { longToast("Request performed") }
+        }
     }
 }
