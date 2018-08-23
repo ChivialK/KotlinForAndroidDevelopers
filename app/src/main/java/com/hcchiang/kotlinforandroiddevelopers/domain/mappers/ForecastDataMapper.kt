@@ -15,6 +15,7 @@ import com.hcchiang.kotlinforandroiddevelopers.domain.model.Forecast as ModelFor
  *
  * Chapter 10: Parsing data
  * Chapter 12: Making the forecast list clickable
+ * Chapter 14: Visibility modifiers
  *
  * Created on 2018/8/22. Copyright © 2017 All rights reserved
  */
@@ -41,5 +42,5 @@ class ForecastDataMapper {
         return df.format(date)
     }
 
-    private fun generateIconUrl(iconCode: String): String = "http://openweathermap.org/img/w/$iconCode.png"
+    private fun generateIconUrl(iconCode: String) = "http://openweathermap.org/img/w/$iconCode.png"
 }
