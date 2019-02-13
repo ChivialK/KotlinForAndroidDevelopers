@@ -1,4 +1,4 @@
-package com.hcchiang.kotlinforandroiddevelopers.data
+package com.hcchiang.kotlinforandroiddevelopers.data.server
 
 import com.google.gson.Gson
 import java.net.URL
@@ -10,10 +10,11 @@ import java.net.URL
  *
  * Chapter 8: Retrieving data from API
  * Chapter 10: Parsing data {@link ResponseClasses.kt}
+ * Chapter 19: Saving and requesting data from database
  *
  * Created on 2018/8/22. Copyright © 2017 All rights reserved
  */
-class ForecastRequest(private val zipCode: String) {
+class ForecastRequest(private val zipCode: Long) {
 
     companion object {
         private const val APP_ID = "15646a06818f61f7b8d7823ca833e1ce"

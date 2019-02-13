@@ -1,4 +1,4 @@
-package com.hcchiang.kotlinforandroiddevelopers.ui.utils
+package com.hcchiang.kotlinforandroiddevelopers.extension
 
 import android.content.Context
 import android.view.View

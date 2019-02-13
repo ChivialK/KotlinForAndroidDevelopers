@@ -1,4 +1,4 @@
-package com.hcchiang.kotlinforandroiddevelopers.ui.utils
+package com.hcchiang.kotlinforandroiddevelopers.extension
 
 import kotlin.reflect.KProperty
 
@@ -11,7 +11,7 @@ import kotlin.reflect.KProperty
  *
  * Created on 2018/8/29. Copyright © 2017 All rights reserved
  */
-object DelegatesExt {
+object DelegatesExtensions {
     fun <T> notNullSingleValue() = NotNullSingleValueVar<T>()
 }
 

@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import com.hcchiang.kotlinforandroiddevelopers.R
 import com.hcchiang.kotlinforandroiddevelopers.domain.model.Forecast
 import com.hcchiang.kotlinforandroiddevelopers.domain.model.ForecastList
-import com.hcchiang.kotlinforandroiddevelopers.ui.utils.ctx
+import com.hcchiang.kotlinforandroiddevelopers.extension.ctx
 import com.squareup.picasso.Picasso
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_forecast.*
+import java.text.DateFormat
+import java.util.*
 
 /**
  * Basic List Adapter
@@ -21,6 +23,7 @@ import kotlinx.android.synthetic.main.item_forecast.*
  * Chapter 13: Lambdas
  * Chapter 14: Visibility modifiers
  * Chapter 15: Kotlin Android Extensions
+ * Chapter 19: Saving and requesting data from database
  *
  * Created on 2018/8/22. Copyright © 2017 All rights reserved
  */
@@ -46,12 +49,17 @@ class ForecastListAdapter(private val weekForecast: ForecastList,
         fun bindForecast(forecast: Forecast) {
             with(forecast) {
                 Picasso.with(itemView.ctx).load(iconUrl).into(icon)
-                dateText.text = date
+                dateText.text = convertDate(date)
                 descriptionText.text = description
                 maxTemperature.text = "${high}º"
                 minTemperature.text = "${low}º"
                 itemView.setOnClickListener { itemClick(this) }
             }
+        }
+
+        private fun convertDate(date: Long): String {
+            val df = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.getDefault())
+            return df.format(date)
         }
     }
 }

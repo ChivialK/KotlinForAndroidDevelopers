@@ -1,4 +1,4 @@
-package com.hcchiang.kotlinforandroiddevelopers.data
+package com.hcchiang.kotlinforandroiddevelopers.data.server
 
 /**
  * Parse Json data from url
@@ -7,6 +7,8 @@ package com.hcchiang.kotlinforandroiddevelopers.data
  *
  * Chapter 10: Parsing data
  * 當我們使用Gson來解析json到類別中時，屬性的名字必須要與json中的名字一樣，或者可以指定一個serialised name（序列化名稱）。
+ *
+ * Chapter 19: Saving and requesting data from database
  *
  * Created on 2018/8/22. Copyright © 2017 All rights reserved
  */

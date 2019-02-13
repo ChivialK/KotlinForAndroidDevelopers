@@ -15,6 +15,7 @@ import org.jetbrains.anko.uiThread
  *  Chapter 12: Making the forecast list clickable
  *  Chapter 13: Lambdas
  *  Chapter 15: Kotlin Android Extensions
+ *  Chapter 19: Saving and requesting data from database
  */
 class MainActivity : AppCompatActivity() {
 
@@ -25,9 +26,9 @@ class MainActivity : AppCompatActivity() {
         forecastList.layoutManager = LinearLayoutManager(this)
 
         doAsync {
-            val result = RequestForecastCommand("94043").execute()
+            val result = RequestForecastCommand(94043).execute()
             uiThread {
-                val adapter = ForecastListAdapter(result) { toast(it.date) }
+                val adapter = ForecastListAdapter(result, { toast(it.description) })
                 forecastList.adapter = adapter
             }
         }

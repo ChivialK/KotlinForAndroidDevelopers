@@ -1,7 +1,7 @@
 package com.hcchiang.kotlinforandroiddevelopers.ui
 
 import android.app.Application
-import com.hcchiang.kotlinforandroiddevelopers.ui.utils.DelegatesExt
+import com.hcchiang.kotlinforandroiddevelopers.extension.DelegatesExtensions
 
 /**
  * Application Singleton
@@ -15,7 +15,7 @@ import com.hcchiang.kotlinforandroiddevelopers.ui.utils.DelegatesExt
 class App : Application() {
 
     companion object {
-        var instance: App by DelegatesExt.notNullSingleValue()
+        var instance: App by DelegatesExtensions.notNullSingleValue()
     }
 
     override fun onCreate() {
